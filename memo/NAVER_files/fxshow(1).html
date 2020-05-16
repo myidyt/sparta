@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://nv.veta.naver.com/fxshow?su=SU10601&nrefreshx=0 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>NAVER</title>
+	<link rel="stylesheet" type="text/css" href="./common.min.css">
+	<script type="text/javascript" src="./jquery-1.8.0.min.js.다운로드"></script>
+	<script type="text/javascript" src="./pc.veta.core.min.js(2).다운로드"></script>
+	<style type="text/css">
+	/* DA Alternative - Contents Style */
+	
+	#addiv {
+		position: relative
+	}
+	
+	#addiv embed,
+	#addiv object {
+		z-index: 20
+	}
+	
+	#addiv #da_alt {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1
+	}
+	
+	#addiv #da_alt.on {
+		z-index: 30
+	}
+	
+	#addiv #da_alt a {
+		display: block;
+		overflow: hidden;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%
+	}
+	
+	#addiv #da_alt .guide {
+		visibility: hidden;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 154px;
+		height: 58px;
+		margin: -29px 0 0 -77px;
+		background: url(https://ssl.pstatic.net/tveta/libs/res/www/common/info/da_access.png)
+	}
+	
+	#addiv #da_alt.on .guide {
+		visibility: visible
+	}
+	</style>
+</head>
+
+<body onload="lazyLoading()" marginwidth="0" marginheight="0">
+	<div id="addiv">
+		<a href="https://siape.veta.naver.com/fxclick?eu=EU10041892&amp;calp=-&amp;oj=ZagUyei1lSggamGBIAFNGlSZisnjXWIoGqcLOFlkPGc1MRFd0QGySfW1YEqVwubmAQMCMuhPEN3mlKgQh4QLoBfQ7VIQ3EvClWkk9I6QY6k&amp;ac=8084290&amp;src=4385964&amp;br=3154468&amp;evtcd=P901&amp;x_ti=1256&amp;tb=&amp;oid=&amp;sid1=&amp;sid2=&amp;rk=e31118b653202de6129bee201110aab8&amp;eltts=UFR3KQ2%2FlFH4EsNoU33VQw%3D%3D&amp;lu=&amp;brs=Y&amp;" id="ac_banner_a" target="_blank">
+			<img src="./25ec0bf1b38b134b711b_20200508151530906.jpg" width="700" height="400" title="" alt="[광고]마티네콘서트 오전 11시 클래식공방 5월 13일 오전 11시 네이버 공연" border="0" style="width:350px;height:200px;">
+		<div id="da_access" style="position: absolute; top: 50%; left: 50%; width: 154px; height: 58px; margin: -29px 0px 0px -77px; background: url(&quot;https://ssl.pstatic.net/tveta/libs/res/www/common/info/da_access.png&quot;); display: none;"></div></a>
+	</div>
+	<a id="link" name="link" href="javascript:void(0)"><span style="position:absolute;overflow:hidden;clip:rect(0 0 0 0);margin:-1px;width:1px;height:1px">상세 페이지 이동</span></a>
+	<script type="text/javascript">
+	try {
+        document.domain = "naver.com";
+    } catch (e) {
+
+	}
+	
+	var timeOut = null;
+	var viewPortIn = false;
+
+	function lazyLoading() {
+		initAd();
+	}
+
+	function initAd() {
+		new Nimp(["https://siape.veta.naver.com/fxview?eu=EU10041892&calp=-&oj=ZagUyei1lSggamGBIAFNGlSZisnjXWIoGqcLOFlkPGc1MRFd0QGySfW1YEqVwubmAQMCMuhPEN3mlKgQh4QLoBfQ7VIQ3EvClWkk9I6QY6k&ac=8084290&src=4385964&evtcd=P100&x_ti=1256&tb=&oid=&sid1=&sid2=&rk=e31118b653202de6129bee201110aab8&eltts=UFR3KQ2%2FlFH4EsNoU33VQw%3D%3D&brs=Y&&eid=V800"]).log(1);
+
+		initAltForImage();
+		initActiveView();
+		initFocusActiveView();
+	}
+
+	function initAltForImage() {
+		// DA Alternative - Create Access Layer
+		var accessLayer = document.createElement('div');
+		accessLayer.setAttribute('id', 'da_access');
+		accessLayer.style.cssText = 'position:absolute;top:50%;left:50%;width:154px;height:58px;margin:-29px 0 0 -77px;background:url(https://ssl.pstatic.net/tveta/libs/res/www/common/info/da_access.png)';
+		accessLayer.style.display = "none";
+		var oAdDiv = document.getElementById("ac_banner_a");
+		oAdDiv.appendChild(accessLayer);
+
+		// DA Alternative - Focus Action
+		var altLink = document.getElementById("ac_banner_a");
+		var bMousedown = false;
+		altLink.onmousedown = function() {
+			bMousedown = true;
+		};
+		altLink.onfocus = function() {
+			if (!bMousedown) {
+				accessLayer.style.display = "block";
+			}
+		};
+		altLink.onblur = function() {
+			accessLayer.style.display = "none";
+		};
+	}
+
+    function initActiveView() {
+        if (window.frameElement === null) {
+            return;
+        }
+        var uId = window.frameElement.id;
+
+        var activeviewFor50 = new naver_corp_da.ActiveViewIFRAME({
+            uId: uId,
+            activeViewPercentage: 0.5,
+            activeViewTime: 1000,
+            callbackIn: function () {
+                try {
+                    var target = parent.document.getElementById(uId);
+                    var eid = (target) ? ((parseInt(target.getBoundingClientRect().height || target.offsetHeight, 10) === 0) ? 'V000' : 'V810') : 'V000';
+                } catch (e) {
+                    eid = 'V000';
+                } finally {
+                    var url = "https://siape.veta.naver.com/fxview?eu=EU10041892&calp=-&oj=ZagUyei1lSggamGBIAFNGlSZisnjXWIoGqcLOFlkPGc1MRFd0QGySfW1YEqVwubmAQMCMuhPEN3mlKgQh4QLoBfQ7VIQ3EvClWkk9I6QY6k&ac=8084290&src=4385965&evtcd=C1073&x_ti=1256&tb=&oid=&sid1=&sid2=&rk=e31118b653202de6129bee201110aab8&eltts=UFR3KQ2%2FlFH4EsNoU33VQw%3D%3D&brs=Y&&eid=" + eid;
+                    var util = naver_corp_da.Util ? new naver_corp_da.Util() : new NBP_CORP.Nimp();
+
+                    if (eid === 'V810') {
+                        $(activeviewFor50).trigger('removeEvent');
+                    }
+
+                    if (util !== null) {
+                        util.log(url);
+                    }				
+                }
+            }
+        });
+
+        activeviewFor50.init();
+
+	}
+	
+	function initFocusActiveView() {
+		if (window.frameElement === null) {
+            return;
+        }
+		var uId = window.frameElement.id;
+		var tarEl = $("#" + uId, parent.document);
+		var callbackIn = function () {
+			try {
+				var target = parent.document.getElementById(uId);
+				var eid = (target) ? ((parseInt(target.getBoundingClientRect().height || target.offsetHeight, 10) === 0) ? 'V000' : 'V810') : 'V000';
+			} catch (e) {
+				eid = 'V000';
+			} finally {
+				var url = "https://siape.veta.naver.com/fxview?eu=EU10041892&calp=-&oj=ZagUyei1lSggamGBIAFNGlSZisnjXWIoGqcLOFlkPGc1MRFd0QGySfW1YEqVwubmAQMCMuhPEN3mlKgQh4QLoBfQ7VIQ3EvClWkk9I6QY6k&ac=8084290&src=4385966&evtcd=C1108&x_ti=1256&tb=&oid=&sid1=&sid2=&rk=e31118b653202de6129bee201110aab8&eltts=UFR3KQ2%2FlFH4EsNoU33VQw%3D%3D&brs=Y&&eid=" + eid;
+				var util = naver_corp_da.Util ? new naver_corp_da.Util() : new NBP_CORP.Nimp();
+
+				if (eid === 'V810') {
+					_removeEventListener();
+				}
+
+				if (util !== null) {
+					util.log(url);
+				}
+			}
+		};
+		
+		_checkActiveView();
+		_addEventListener();
+
+		function _addEventListener(){
+			$(parent.window).on('scroll resize focus', _checkActiveView);
+		}
+
+		function _removeEventListener() {
+			$(parent.window).off('scroll resize focus', _checkActiveView);
+		}
+
+		function _checkActiveView() {
+			checkViewPort(tarEl, callbackIn);
+		}
+	}
+
+	function hasFocus() {
+		var parentDocument = window.parent.document;
+
+        return (!parentDocument.hasFocus) ? true : parentDocument.hasFocus();
+	}
+
+	function checkViewPort(targetElement, callbackIn) {
+		var flagIn = beIntoViewPortWithRatio(targetElement, 0.5);
+		var flagOut = !beIntoViewPortWithRatio(targetElement, 0.5);
+
+		if (flagIn === true && hasFocus() === true) {
+			viewPortIn = true;
+			if (timeOut !== null) {
+				return;
+			}
+
+			timeOut = setTimeout(function () {
+				if (viewPortIn === false) {
+					return;
+				}
+				callbackIn();
+			}, 1000);
+		}
+
+		if (flagOut === true || hasFocus() === false) {
+			viewPortIn = false;
+
+			if (timeOut === false) {
+				return;
+			}
+
+			clearTimeout(timeOut);
+			timeOut = null;
+		}
+		
+    }
+
+    function beIntoViewPortWithRatio(elem, ratio) {
+        if (AgentDetect.IS_IE && AgentDetect.searchBrowserVersion() < 9.0) {
+            return false;
+        }
+
+        if (elem === undefined) {
+            return false;
+        }
+
+        if (parent === null) {
+            return false;
+        }
+
+        var eW = elem.width();
+        var eH = elem.height();
+
+        var viewportTop = $(parent.window).scrollTop();
+        var viewportBottom = $(parent.window).scrollTop() + ((parent.window.document.doctype)? $(parent.window).innerHeight() : parent.window.innerHeight);
+        var viewportLeft = $(parent.window).scrollLeft();
+        var viewportRight = $(parent.window).scrollLeft() + $(parent.window).innerWidth();
+
+        var f1 = (viewportTop <= (elem.offset().top + (eH * (1.0 - ratio))));
+        var f2 = (viewportBottom >= elem.offset().top + (eH * ratio));
+        var f3 = (viewportLeft <= elem.offset().left + (eW * (1.0 - ratio)));
+        var f4 = (viewportRight >= elem.offset().left + (eW * ratio));
+
+        return (f1 && f2) && (f3 && f4);
+	}
+	</script>
+
+
+<div style="display: none;"></div></body></html>

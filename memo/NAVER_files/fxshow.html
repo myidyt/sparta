@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://nv.veta.naver.com/fxshow?su=SU10599&nrefreshx=0 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>NAVER</title>
+    <script type="text/javascript" src="./jquery-1.8.0.min.js.다운로드"></script>
+    <script type="text/javascript" src="./pc.veta.core.min.js(1).다운로드"></script>
+    <link rel="stylesheet" type="text/css" href="./new_timeboard.min.css">
+</head>
+<body onload="lazyLoading()" marginwidth="0" marginheight="0">
+<div id="da_timeboard">
+    <div class="content">
+        <div id="addiv" class="ad">
+            <a href="https://siape.veta.naver.com/fxclick?eu=EU10041888&amp;calp=-&amp;oj=A4YjrwVVtw%2B3VyLQuD3ZS1SZisnjXWIoGqcLOFlkPGc1MRFd0QGySfW1YEqVwubmAQMCMuhPEN3mlKgQh4QLoBfQ7VIQ3EvClWkk9I6QY6k&amp;ac=8084536&amp;src=4381248&amp;br=3152440&amp;evtcd=P901&amp;x_ti=1308&amp;tb=&amp;oid=&amp;sid1=&amp;sid2=&amp;rk=b61ba02aa8947c828bde0c1fccf64053&amp;eltts=UFR3KQ2%2FlFH4EsNoU33VQw%3D%3D&amp;lu=&amp;brs=Y&amp;" id="ac_banner_a" target="_blank">
+            <img src="./1f51a2c4bdc1d2e94f56_20200506174354143.jpg" width="1500" height="270" alt="[광고]말하지 않고 주문! 스마트주문으로 미리 주문하세요 첫 주문 시 네이버페이 3천원" border="0" style="width:750px;height:135px;"><div id="da_access" style="position: absolute; top: 50%; left: 50%; width: 154px; height: 58px; margin: -29px 0px 0px -77px; background: url(&quot;https://ssl.pstatic.net/tveta/libs/res/www/common/info/da_access.png&quot;); display: none;"></div></a>
+        </div>
+        <a id="link" name="link" href="javascript:void(0)"></a>
+    </div>
+</div>
+<script type="text/javascript">
+    try {
+        document.domain = "naver.com";
+    } catch (e) {}
+
+    function lazyLoading() {
+        new Nimp(["https://siape.veta.naver.com/fxview?eu=EU10041888&calp=-&oj=A4YjrwVVtw%2B3VyLQuD3ZS1SZisnjXWIoGqcLOFlkPGc1MRFd0QGySfW1YEqVwubmAQMCMuhPEN3mlKgQh4QLoBfQ7VIQ3EvClWkk9I6QY6k&ac=8084536&src=4381248&evtcd=P100&x_ti=1308&tb=&oid=&sid1=&sid2=&rk=b61ba02aa8947c828bde0c1fccf64053&eltts=UFR3KQ2%2FlFH4EsNoU33VQw%3D%3D&brs=Y&&eid=V800"]).log(1);
+        initAd();
+    };
+    function initAd() {
+        setDomByGOLang();
+        initAltForImage();
+        setClickCoordinate();
+    };
+    function setDomByGOLang() {
+        var targetTag = $("#ac_banner_a");
+        var daHtml = "";
+
+        daHtml += "<img src=\"https://ssl.pstatic.net/tveta/libs/1284/1284209/1f51a2c4bdc1d2e94f56_20200506174354143.jpg\" width=\"1500\" height=\"270\" alt=\"[광고]말하지 않고 주문! 스마트주문으로 미리 주문하세요 첫 주문 시 네이버페이 3천원\" border=\"0\" style=\"width:750px;height:135px;\">";
+
+        targetTag.append(daHtml);
+    };
+    function initAltForImage() {
+        // DA Alternative - Create Access Layer
+        var accessLayer = document.createElement('div');
+        accessLayer.setAttribute('id', 'da_access');
+        accessLayer.style.cssText = 'position:absolute;top:50%;left:50%;width:154px;height:58px;margin:-29px 0 0 -77px;background:url(https://ssl.pstatic.net/tveta/libs/res/www/common/info/da_access.png)';
+        accessLayer.style.display = "none";
+        var oAdDiv = document.getElementById("ac_banner_a");
+        oAdDiv.appendChild(accessLayer);
+
+        // DA Alternative - Focus Action
+        var altLink = document.getElementById("ac_banner_a");
+        var bMousedown = false;
+        altLink.onmousedown = function() {
+            bMousedown = true;
+        };
+        altLink.onfocus = function() {
+            if (!bMousedown) {
+                accessLayer.style.display = "block";
+            }
+        };
+        altLink.onblur = function() {
+              accessLayer.style.display = "none";
+        };
+    };
+    function setClickCoordinate(){
+        if (Da.$$("da_top") !== null) {
+            new naver_corp_da.getClickedCoordinate({
+                adArea: Da.$$("da_top")
+            }).activate();
+        }
+        new naver_corp_da.getClickedCoordinate({
+            adArea: Da.$("addiv"),
+            adType: "image",
+            parentArea: Da.$$("veta_top")
+        }).activate();
+    };
+</script>
+
+<div style="display: none;"></div></body></html>
