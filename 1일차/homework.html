@@ -2,18 +2,21 @@
 <html lang="en">
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>판매페이지</title>
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <style>
         .wrap {
             width: 50%;
             margin: 10px auto;
-            padding:50px 120px;
-            text-align:center;
+            padding: 50px 120px;
+            text-align: center;
         }
+
         * {
             font-family: 'Black Han Sans', sans-serif;
         }
+
         .small-font {
             font-size: 20px;
         }
@@ -25,6 +28,22 @@
     <script>
         function hey() {
             alert('주문이 완료되었습니다.');
+        }        
+        function button_click() {
+            let order_name = $('#order_name').val()
+            let order_address = $('#order_address').val()
+            let order_phone = $('#order_phone').val()
+            let regPhone = /(01[0|1|6|9|7])[-](\d{3}|\d{4})[-](\d{4}$)/g;
+            
+            if (order_name == '') {
+                alert('이름을 입력해주세요');
+            } else if (order_address == '') {
+                alert('주소를 입력해주세요');
+            } else if (!regPhone.test(order_phone)){
+                alert('전화번호를 입력해주세요');
+            } else { 
+                alert('주문이 완료되었습니다.');
+            }
         }
     </script>
     <!-- Required meta tags -->
@@ -57,34 +76,34 @@
 
         <div class="input-group flex-nowrap">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="addon-wrapping">주문자이름</span>
+                <span class="input-group-text">주문자이름</span>
             </div>
-            <input type="text" class="form-control" aria-describedby="addon-wrapping">
+            <input type="text" class="form-control" id="order_name" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">수량</label>
+                <label class="input-group-text" for="inputGroupSelect01">수량</label>
             </div>
             <select class="custom-select" id="inputGroupSelect01">
-              <option selected>-- 수량을 선택해주세요 --</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
+                <option selected>-- 수량을 선택해주세요 --</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
             </select>
-          </div>
-        <div class="input-group flex-nowrap">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="addon-wrapping">주소</span>
-            </div>
-            <input type="text" class="form-control" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="addon-wrapping">전화번호</span>
+                <span class="input-group-text" ></span>주소</span>
             </div>
-            <input type="text" class="form-control" aria-describedby="addon-wrapping">
+            <input type="text" class="form-control" id="order_address" aria-describedby="addon-wrapping">
         </div>
-        <button onclick="hey()" type="button" class="btn btn-primary">주문</button>
+        <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+                <span class="input-group-text" >전화번호</span>
+            </div>
+            <input type="text" class="form-control" id="order_phone" aria-describedby="addon-wrapping">
+        </div>
+        <button onclick="button_click()" id="button" type="button" class="btn btn-primary">주문</button>
 
     </div>
     </div>
