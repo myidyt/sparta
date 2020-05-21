@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -32,8 +32,7 @@
                 url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/bikeList/1/99", // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
                 success: async function (response) { // 서버에서 준 결과를 response라는 변수에 담음
                     $('#names-q1').empty();
-                    let rows = response["rentBikeStatus"]["row"];
-                    await new Promise((r) => setTimeout(() => r()), 1000)
+                    let exchangerate = response["rentBikeStatus"]["row"];
                     for (let i = 0; i < rows.length; i++) {
                         let bike_rack = rows[i]['rackTotCnt'];
                         let station_name = rows[i]['stationName'];
@@ -49,7 +48,7 @@
                     }
                 }
             })
-        }  
+        }
     </script>
 
  </head>

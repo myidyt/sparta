@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>판매페이지</title>
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <style>
         .wrap {
             width: 50%;
             margin: 10px auto;
-            padding: 50px 120px;
-            text-align: center;
+            padding: 50px 100px;
+            text-align: left;
         }
 
         * {
@@ -22,39 +22,70 @@
         }
 
         .large-font {
-            font-size: 50px;
+            font-size: 30px;
+            font-weight: bold;
         }
+        
+        .exchange-font {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+            color: blue;
+        }
+        
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); 
+        }
+
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        function hey() {
-            alert('주문이 완료되었습니다.');
-        }        
-        function button_click() {
+        // $.ajax()
+        // $(document).ready(function(){
+            function button_click() {
             let order_name = $('#order_name').val()
             let order_address = $('#order_address').val()
             let order_phone = $('#order_phone').val()
             let regPhone = /(01[0|1|6|9|7])[-](\d{3}|\d{4})[-](\d{4}$)/g;
+            let order_num = $('#order_num').val()
             
             if (order_name == '') {
                 alert('이름을 입력해주세요');
+            } else if (order_num == '') {
+                alert('a');
             } else if (order_address == '') {
                 alert('주소를 입력해주세요');
             } else if (!regPhone.test(order_phone)){
-                alert('전화번호를 입력해주세요');
+                alert('전화번호를 입력해주세요\n 000-0000-0000 형식으로 등록해주세요');
             } else { 
                 alert('주문이 완료되었습니다.');
             }
-        }
+            // let order_html = `
+            // ${order_name}
+            // `        
+            // $('#button').append(oder_html);
+            }      
+        // }
+        $.ajax({
+            type: "GET", // GET 방식으로 요청한다.
+            url: "https://api.manana.kr/exchange/rate.json",
+            data: {}, // 요청하면서 함께 줄 데이터 (GET 요청시엔 비워두세요)
+            success: function(response) { // 서버에서 준 결과를 response라는 변수에 담음
+            let exchangeRate = response[1]['rate'];
+            // let tmpl_html = `${dollarRate}`
+            let tmpl_html = `${exchangeRate}`
+            $('#exchange_USD').append(tmpl_html);
+            }
+        });
     </script>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -66,13 +97,15 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 </head>
-
 <body>
     <div class="wrap">
 
-        <img src="http://cimg.gabangpop.co.kr/images/goods_img/20150827/295760/295760_a_500.jpg" />
-        <div class="mytitle large-font"> 가방판매<span class="mytitle small-font"> 가격 50,000원 </span> </div>
-        <div class="mytitle small-font">심플하고 로고등록이 가능합니다.</div>
+        <img src="http://img.danawa.com/prod_img/500000/971/935/img/5935971_1.jpg">
+        <div class="mytitle large-font"> EC-685 판매<span class="mytitle small-font"> [가격 250,000원] </span> </div>
+        
+        <div class="mytitle small-font">커피를 아는 사람들의 최고의 선택. 슬림하고 고급스러운 디자인으로 멋스러움과 함께 갓 추출한 커피의 신선함을 즐기세요.</div>
+        
+        <div class="mytitle exchange-font">달러-원 환율:<span id="exchange_USD"></span></div>
 
         <div class="input-group flex-nowrap">
             <div class="input-group-prepend">
@@ -84,17 +117,16 @@
             <div class="input-group-prepend">
                 <label class="input-group-text" for="inputGroupSelect01">수량</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
-                <option selected>-- 수량을 선택해주세요 --</option>
+            <select class="custom-select" id="order_num" value="1">
+                <option selected >-- 수량을 선택해주세요 --</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
             </select>
-        </div>
+            </div>
         <div class="input-group flex-nowrap">
             <div class="input-group-prepend">
-                <span class="input-group-text" ></span>주소</span>
-            </div>
+                <span class="input-group-text">주소</span></div>
             <input type="text" class="form-control" id="order_address" aria-describedby="addon-wrapping">
         </div>
         <div class="input-group flex-nowrap">
@@ -103,10 +135,9 @@
             </div>
             <input type="text" class="form-control" id="order_phone" aria-describedby="addon-wrapping">
         </div>
-        <button onclick="button_click()" id="button" type="button" class="btn btn-primary">주문</button>
-
-    </div>
+        <div style="width: 20%; float:none; margin:0 auto">
+        <button onclick="button_click()" id="button" type="button" text-align="center" class="btn btn-primary" >&nbsp&nbsp&nbsp&nbsp주&nbsp&nbsp문&nbsp&nbsp&nbsp&nbsp</button>
+        </div>
     </div>
 </body>
-
 </html>
