@@ -65,12 +65,16 @@
             } else { 
                 alert('주문이 완료되었습니다.');
             }
-            // let order_html = `
+            let order_html1 = '<li>'+'order_name'+'</li>';
+            $('#order_list').append(temp_html1);
             // ${order_name}
             // `        
             // $('#button').append(oder_html);
             }      
         // }
+            // function order_list() {
+
+            // }
         $.ajax({
             type: "GET", // GET 방식으로 요청한다.
             url: "https://api.manana.kr/exchange/rate.json",
@@ -137,7 +141,7 @@
         </div>
         <div style="width: 20%; float:none; margin:0 auto">
         <button onclick="button_click()" id="button" type="button" text-align="center" class="btn btn-primary" >&nbsp&nbsp&nbsp&nbsp주&nbsp&nbsp문&nbsp&nbsp&nbsp&nbsp</button>
-        </div>
+        <div class="input-group flex-nowrap" id="order_list"></div>         
     </div>
 </body>
 </html>
