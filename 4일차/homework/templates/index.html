@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    
     <title>판매페이지</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -80,8 +82,9 @@
             let qty = $('#qty').val();
             let address = $('#address').val();
             let phone = $('#phone').val();
-            let regPhone = /(01[0|1|6|9|7])[-](\d{3}|\d{4})[-](\d{4}$)/g;
-         
+            //let regPhone = /(01[0|1|6|9|7])[-](\d{3}|\d{4})[-](\d{4}$)/g;
+            let regPhone = /(01[0|1|6|9|7])(\d{3}|\d{4})(\d{4}$)/g;
+
             if (name == '') {
                 alert('이름을 입력해주세요');
                 $('#name').focus();
@@ -101,7 +104,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/orders",
+                url: "/order",
                 data: { name_give: name, qty_give: qty, address_give: address, phone_give: phone },
                 success: function (response) {
                     if (response['result'] == 'success') {
@@ -110,12 +113,12 @@
                     }
                 }
             })
-            listing();
+            
         };
 
         $(document).ready(function () {
             exchange_rate();
-            
+            listing();
         });
         
         function exchange_rate() {
@@ -134,7 +137,7 @@
         function listing() {
             $.ajax({
                 type: "GET",
-                url: "/orders",
+                url: "/order",
                 data: {},
                 sucess: function (response) {
                     if (response['result'] == 'success') {
@@ -154,7 +157,7 @@
                                 <td>${address}</td>
                                 <td>${phone}</td>
                             <tr>`
-            $('#order-list').append(temp_html);
+            $('#OrderList').append(temp_html);
         }
 
     </script>
@@ -213,7 +216,7 @@
                     <th scope="col">전화번호</th>
                 </tr>
             </thead>
-            <tbody id="order-list"></tbody>
+            <tbody id="OrderList"></tbody>
         </table>
     </div>
 </body>
